@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sooooo Cute</title>
+
+    <link rel="shortcut icon" type="image/jpg" href="https://pbs.twimg.com/media/CiG8qxOUUAAivTE.jpg">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <style>
+        img {
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cute Cat</h1>
+        <h3 id="clicks1">Not yet clicked!</h3>
+        <h3 id="clicks2">Not yet clicked!</h3>
+        <div>
+            <img src="https://ipfs.io/ipfs/QmW2WQi7j6c7UgJTarActp7tDNikE4B2qXtFCfLPdsgaTQ/cat.jpg" alt="Cat-Image" id="kitty">
+            <img src="http://www.gpb.org/files/grumpy-cat-i-had-fun.jpeg" alt="Cat-Image" id="kitty2">
+            </iframe>
+        </div>
+    </div>
+    <script>
+        if (localStorage.getItem("cat1") === null) {
+            var cat1 = 0;
+        } else {
+            var cat1 = localStorage.getItem("cat1");
+             document.getElementById("clicks1").textContent = `Cat 1 clicked ${cat1} times:)`;
+        }
+        if (localStorage.getItem("cat2") === null) {
+            var cat2 = 0;
+        } else {
+            var cat2 = localStorage.getItem("cat2");
+             document.getElementById("clicks2").textContent = `Cat 2 clicked ${cat2} times:)`;
+            
+        }
+
+
+        localStorage.setItem("cat1", cat1);
+        document.getElementById("kitty").addEventListener("click", function () {
+            cat1++;
+            localStorage.setItem("cat1", cat1);
+            document.getElementById("clicks1").textContent = `Cat 1 clicked ${cat1} times:)`;
+        });
+
+        document.getElementById("kitty2").addEventListener("click", function () {
+            cat2++;
+             localStorage.setItem("cat2", cat2);
+            document.getElementById("clicks2").textContent = `Cat 2 clicked ${cat2} times:)`;
+        })
+    </script>
+</body>
+
+</html>
